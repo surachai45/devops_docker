@@ -1,13 +1,13 @@
 pipeline {
     agent none
     environment {
-        imageName = 'my_web_ex'
+        imageName = 'surachai/my_web_ex'
         port = 80
     }
     
     stages {
        stage('Package') { 
-          agent any
+           agent {label 'mgr1' }
           steps {
               sh "docker --version"
               sh "docker build -t ${imageName} ."
