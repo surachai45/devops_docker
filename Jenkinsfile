@@ -1,7 +1,7 @@
 pipeline {
     agent none
     environment {
-        imageName = 'surachai/my_web_ex'
+        imageName = 'my_web_ex'
         port = 80
     }
     
