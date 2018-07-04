@@ -1,7 +1,7 @@
 pipeline {
     agent none
     environment {
-        imageName = 'sommaik/my_web_ex'
+        imageName = 'surachai/my_web_ex'
         port = 80
     }
     
@@ -13,8 +13,8 @@ pipeline {
               sh "docker build -t ${imageName} ."
             withCredentials(
                 [usernamePassword(credentialsId: 'docker_hub', 
-                passwordVariable: 'dockerHubPassword', 
-                usernameVariable: 'dockerHubUser')]) {
+                passwordVariable: 'password', 
+                usernameVariable: 'surachai.l@pttdigital.com')]) {
               sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
               sh "docker push ${imageName}"
             }
