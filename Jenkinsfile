@@ -13,8 +13,8 @@ pipeline {
               sh "docker build -t ${imageName} ."
             withCredentials(
                 [usernamePassword(credentialsId: 'docker_hub', 
-                passwordVariable: 'password', 
-                usernameVariable: 'surachai.l@pttdigital.com')]) {
+                 passwordVariable: 'dockerHubPassword', 
+                usernameVariable: 'dockerHubUser')]) {
               sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
               sh "docker push ${imageName}"
             }
